@@ -16,6 +16,12 @@ import com.orden.ord.dto.OrderDto;
 import com.orden.ord.service.OrderService;
 import com.orden.ord.util.ResponseFormat;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 @RestController
 @RequestMapping("/")
 public class OrderController {
@@ -29,6 +35,11 @@ public class OrderController {
 	}
 	
 	@PostMapping("createOrder")
+	@Operation(summary = "Create Order")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Create order: List<ProductDto.class>", content = {
+					@Content(mediaType = "application/json", schema = @Schema(implementation = OrderDto.class)) }),
+			@ApiResponse(responseCode = "400", description = "The order cannot be created") })
 	public ResponseEntity<Map<String, Object>> getProducts(
 			@RequestHeader(name = "Authorization") String Authorization, @RequestBody OrderDto orderDto) {
 		try {
