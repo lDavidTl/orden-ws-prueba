@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.orden.ord.config.SecurityContext;
 import com.orden.ord.dto.OrderDto;
 import com.orden.ord.exception.BadRequestException;
 import com.orden.ord.mapper.OrderMapper;
