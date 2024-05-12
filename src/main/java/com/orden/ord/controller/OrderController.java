@@ -40,7 +40,7 @@ public class OrderController {
 			@ApiResponse(responseCode = "200", description = "Create order: List<ProductDto.class>", content = {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = OrderDto.class)) }),
 			@ApiResponse(responseCode = "400", description = "The order cannot be created") })
-	public ResponseEntity<Map<String, Object>> getProducts(
+	public ResponseEntity<Map<String, Object>> createOrder(
 			@RequestHeader(name = "Authorization") String Authorization, @RequestBody OrderDto orderDto) {
 		try {
 			return ResponseFormat.successEntity(orderService.addOrder(orderDto));
